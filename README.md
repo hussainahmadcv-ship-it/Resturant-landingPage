@@ -15,10 +15,10 @@
 ---
 
 ## Screenshots
-Screenshots are in `assets/desktop`:
+You can view the screenshots in the `assets/desktop` folder:
 
-- `Screenshots.png` – Homepage  
-- `Screenshots1.png` – Menu & Reservation  
+- [Homepage Screenshot](assets/desktop/Screenshots.png)  
+- [Menu & Reservation Screenshot](assets/desktop/Screenshots1.png)  
 
 ---
 
