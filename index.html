@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gourmet Haven - Authentic Cuisine</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .dish-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .dish-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 auto;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #d97706;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .btn-primary {
+            background-color: #d97706;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .btn-primary:hover {
+            background-color: #b45309;
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            border-color: #d97706;
+            color: #d97706;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: #d97706;
+            color: white;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold text-amber-700">Gourmet Haven</a>
+                
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-button" class="lg:hidden text-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+                
+                <!-- Desktop menu -->
+                <div class="hidden lg:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-amber-700 font-medium">Home</a>
+                    <a href="#menu" class="nav-link text-gray-700 hover:text-amber-700 font-medium">Menu</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-amber-700 font-medium">About</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-amber-700 font-medium">Contact</a>
+                    <a href="#reservation" class="btn-primary text-white px-6 py-2 rounded-full font-medium">Reserve Table</a>
+                </div>
+            </div>
+            
+            <!-- Mobile menu (hidden by default) -->
+            <div id="mobile-menu" class="hidden lg:hidden mt-4 space-y-4 pb-4">
+                <a href="#home" class="block text-gray-700 hover:text-amber-700 font-medium">Home</a>
+                <a href="#menu" class="block text-gray-700 hover:text-amber-700 font-medium">Menu</a>
+                <a href="#about" class="block text-gray-700 hover:text-amber-700 font-medium">About</a>
+                <a href="#contact" class="block text-gray-700 hover:text-amber-700 font-medium">Contact</a>
+                <a href="#reservation" class="btn-primary inline-block text-white px-6 py-2 rounded-full font-medium">Reserve Table</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center pt-16">
+        <div class="container mx-auto px-4 py-20 text-white">
+            <div class="max-w-2xl">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6">Savor Authentic Flavors</h1>
+                <p class="text-xl mb-8 text-gray-100">At Gourmet Haven, we craft memorable dining experiences with locally-sourced ingredients, passion, and culinary expertise. Join us for a journey through taste and tradition.</p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#menu" class="btn-primary text-white px-8 py-3 rounded-full text-lg font-medium">View Our Menu</a>
+                    <a href="#reservation" class="btn-secondary border-2 px-8 py-3 rounded-full text-lg font-medium">Book a Table</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-amber-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4 text-amber-800">Our Story</h2>
+                <div class="w-24 h-1 bg-amber-600 mx-auto mb-8"></div>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1771&q=80" 
+                         alt="Restaurant interior" 
+                         class="rounded-lg shadow-lg w-full h-auto">
+                </div>
+                <div class="lg:w-1/2">
+                    <h3 class="text-3xl font-bold mb-6 text-gray-800">A Passion for Culinary Excellence</h3>
+                    <p class="text-gray-700 mb-6">Founded in 2015, Gourmet Haven began as a small family-owned eatery with a vision to bring authentic, heartwarming cuisine to our community. Our chefs combine traditional recipes with modern techniques to create dishes that tell a story.</p>
+                    <p class="text-gray-700 mb-6">We believe in the power of food to bring people together. Every ingredient is carefully selected from local farms and suppliers who share our commitment to quality and sustainability. Our menu changes with the seasons to ensure freshness and variety.</p>
+                    <p class="text-gray-700 mb-8">At Gourmet Haven, we're not just serving meals—we're creating experiences. From intimate dinners to family celebrations, our warm atmosphere and attentive service make every visit special.</p>
+                    <a href="#contact" class="btn-primary text-white px-8 py-3 rounded-full font-medium inline-block">Visit Us Today</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Preview Section -->
+    <section id="menu" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4 text-amber-800">Signature Dishes</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Explore a selection of our most popular creations, crafted with care and premium ingredients.</p>
+                <div class="w-24 h-1 bg-amber-600 mx-auto mt-6"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Dish 1 -->
+                <div class="dish-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+                    <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1760&q=80" 
+                         alt="Grilled Salmon" 
+                         class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Grilled Atlantic Salmon</h3>
+                        <p class="text-gray-600 mb-4">Fresh salmon fillet grilled to perfection, served with lemon herb butter and seasonal vegetables.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-amber-700">$24.99</span>
+                            <a href="#reservation" class="text-amber-700 font-medium hover:text-amber-800">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Dish 2 -->
+                <div class="dish-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+                    <img src="https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" 
+                         alt="Truffle Pasta" 
+                         class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Truffle Mushroom Pasta</h3>
+                        <p class="text-gray-600 mb-4">Handmade fettuccine tossed with wild mushrooms, black truffle, and creamy Parmesan sauce.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-amber-700">$19.99</span>
+                            <a href="#reservation" class="text-amber-700 font-medium hover:text-amber-800">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Dish 3 -->
+                <div class="dish-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+                    <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" 
+                         alt="Herb-Crusted Rack of Lamb" 
+                         class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Herb-Crusted Rack of Lamb</h3>
+                        <p class="text-gray-600 mb-4">Tender lamb with rosemary crust, mint glaze, roasted potatoes, and grilled asparagus.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-amber-700">$32.99</span>
+                            <a href="#reservation" class="text-amber-700 font-medium hover:text-amber-800">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Dish 4 -->
+                <div class="dish-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+                    <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" 
+                         alt="Chocolate Lava Cake" 
+                         class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Chocolate Lava Cake</h3>
+                        <p class="text-gray-600 mb-4">Warm dark chocolate cake with a molten center, served with vanilla bean ice cream.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-amber-700">$11.99</span>
+                            <a href="#reservation" class="text-amber-700 font-medium hover:text-amber-800">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#reservation" class="btn-primary text-white px-10 py-3 rounded-full text-lg font-medium inline-block">View Full Menu</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-16 bg-amber-800 text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">Why Choose Gourmet Haven</h2>
+                <p class="text-xl text-amber-100 max-w-3xl mx-auto">We're committed to providing an exceptional dining experience from start to finish.</p>
+                <div class="w-24 h-1 bg-white mx-auto mt-6"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="text-center">
+                    <div class="feature-icon bg-amber-700 mb-6">
+                        <i class="fas fa-leaf text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Fresh Ingredients</h3>
+                    <p class="text-amber-100">We partner with local farms to source the freshest seasonal produce, meats, and dairy for our dishes.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="feature-icon bg-amber-700 mb-6">
+                        <i class="fas fa-bolt text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Fast & Friendly Service</h3>
+                    <p class="text-amber-100">Our attentive staff ensures timely service with a personal touch, making every guest feel special.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="feature-icon bg-amber-700 mb-6">
+                        <i class="fas fa-home text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Cozy Atmosphere</h3>
+                    <p class="text-amber-100">Enjoy warm, inviting interiors designed for comfort, perfect for any occasion from casual to celebratory.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Reservation Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4 text-amber-800">Visit Us Today</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">We'd love to welcome you to Gourmet Haven. Make a reservation or visit us during our opening hours.</p>
+                <div class="w-24 h-1 bg-amber-600 mx-auto mt-6"></div>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <div class="bg-amber-50 rounded-xl p-8 shadow-lg">
+                        <h3 class="text-2xl font-bold mb-6 text-gray-800">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-amber-700 text-xl mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Address</h4>
+                                    <p class="text-gray-700">123 Culinary Street<br>Flavor Town, FT 12345</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <i class="fas fa-phone-alt text-amber-700 text-xl mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Phone</h4>
+                                    <p class="text-gray-700">(555) 123-4567</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <i class="fas fa-envelope text-amber-700 text-xl mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Email</h4>
+                                    <p class="text-gray-700">info@gourmethaven.demo</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <i class="fas fa-clock text-amber-700 text-xl mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Opening Hours</h4>
+                                    <p class="text-gray-700">
+                                        Monday - Thursday: 11am - 10pm<br>
+                                        Friday - Saturday: 11am - 11pm<br>
+                                        Sunday: 10am - 9pm
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 flex flex-wrap gap-4">
+                            <a href="tel:5551234567" class="btn-primary text-white px-6 py-3 rounded-full font-medium flex items-center">
+                                <i class="fas fa-phone-alt mr-2"></i> Call Now
+                            </a>
+                            <a href="mailto:info@gourmethaven.demo" class="btn-secondary border-2 px-6 py-3 rounded-full font-medium flex items-center">
+                                <i class="fas fa-envelope mr-2"></i> Email Us
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="reservation" class="lg:w-1/2">
+                    <div class="bg-white rounded-xl p-8 shadow-lg border border-gray-100">
+                        <h3 class="text-2xl font-bold mb-6 text-gray-800">Make a Reservation</h3>
+                        <form id="reservation-form" class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-gray-700 mb-2 font-medium">Full Name</label>
+                                    <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Your name" required>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-gray-700 mb-2 font-medium">Phone Number</label>
+                                    <input type="tel" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="(555) 123-4567" required>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-gray-700 mb-2 font-medium">Date</label>
+                                    <input type="date" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500" required>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-gray-700 mb-2 font-medium">Time</label>
+                                    <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500" required>
+                                        <option value="">Select time</option>
+                                        <option value="17:00">5:00 PM</option>
+                                        <option value="17:30">5:30 PM</option>
+                                        <option value="18:00">6:00 PM</option>
+                                        <option value="18:30">6:30 PM</option>
+                                        <option value="19:00">7:00 PM</option>
+                                        <option value="19:30">7:30 PM</option>
+                                        <option value="20:00">8:00 PM</option>
+                                        <option value="20:30">8:30 PM</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 mb-2 font-medium">Number of Guests</label>
+                                <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500" required>
+                                    <option value="">Select guests</option>
+                                    <option value="1">1 person</option>
+                                    <option value="2">2 people</option>
+                                    <option value="3">3 people</option>
+                                    <option value="4">4 people</option>
+                                    <option value="5">5 people</option>
+                                    <option value="6">6 people</option>
+                                    <option value="7">7+ people</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 mb-2 font-medium">Special Requests (Optional)</label>
+                                <textarea class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500" rows="3" placeholder="Any dietary restrictions or special occasions?"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn-primary w-full text-white px-6 py-4 rounded-full font-medium text-lg">Reserve Table</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-8 md:mb-0">
+                    <h3 class="text-3xl font-bold text-amber-400 mb-4">Gourmet Haven</h3>
+                    <p class="text-gray-400">Authentic cuisine, unforgettable experiences.</p>
+                </div>
+                
+                <div class="flex space-x-6 mb-8 md:mb-0">
+                    <a href="#" class="text-gray-400 hover:text-amber-400 text-2xl">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-amber-400 text-2xl">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-amber-400 text-2xl">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-amber-400 text-2xl">
+                        <i class="fab fa-tripadvisor"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p class="mb-4">© 2023 Gourmet Haven. All rights reserved.</p>
+                <p class="text-sm max-w-3xl mx-auto">
+                    <strong>Disclaimer:</strong> This website is a demo project. All images are sourced from Unsplash under the free-to-use license. All content is placeholder and should be replaced with original restaurant information. This is not a real restaurant website.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+            
+            // Change icon based on menu state
+            const icon = mobileMenuButton.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        });
+        
+        // Close mobile menu when clicking a link
+        const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+                const icon = mobileMenuButton.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+        
+        // Form submission handling
+        const reservationForm = document.getElementById('reservation-form');
+        reservationForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(reservationForm);
+            const name = formData.get('name') || "Guest";
+            
+            // Show success message
+            alert(`Thank you, ${name}! Your reservation request has been received. We will contact you shortly to confirm.`);
+            
+            // Reset form
+            reservationForm.reset();
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
